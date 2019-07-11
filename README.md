@@ -48,11 +48,21 @@ annovar - 2018Apr16
 
 The program takes in the keyword and the ped file name and automatically execute the workflow. It might take a long time before the final filtered .epiq file is generated. The .epiq file would be used in GenomicsEpiquant package for 
 
-# Notes
+## Notes
 This is a coarse model where only SNPs directly annotated to the selected genes are considered, and coding/non-coding region are not separated. We are adding a ranking procedure to include more genes interacting with select genes and SNPs associated with those genes ranked. Later, the regulatory information would also be incorporated into the workflow.
+
+# Exploration in Ranking
+In order to further explore the complex interactive network between genes and their potential indication of epistasis, we plan to apply Random-Walk-with-Restart (RWR) algorithm on network of Protein-protein interaction (PPI), co-expression, pathways, and chromosome structure. The work is based on Valdeolivas, et.al. (2018)
+
+The Valdeolivas team has constructed an algorithm for RWR on multiplex (multiple layer) heterogeneous (nodes can be genes and phenotypes) network. We plan to extend the network to another layer of SNP-SNP interaction derived from Hi-C data, which provides information for 3D contact probability of chromosome. In addition to Valdeolivas team's gene-phenotype association, we add a SNP-gene association table via annotation to connect the SNP layer and gene layer.
+
+Currently, we have adapted the code and network tables from the Valdeolivas code repo: https://github.com/alberto-valdeolivas/RWR-MH
 
 # References
 \[1\] Purcell, Shaun, et al. "PLINK: a tool set for whole-genome association and population-based linkage analyses." The American journal of human genetics 81.3 (2007): 559-575.
 \[2\]Wang, Kai, Mingyao Li, and Hakon Hakonarson. "ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data." Nucleic acids research 38.16 (2010): e164-e164.
 \[3\]Gatto, Laurent. "rols: an R interface to the Ontology Lookup Service." (2013).
 \[4\]Durinck, Steffen, et al. "Mapping identifiers for the integration of genomic datasets with the R/Bioconductor package biomaRt." Nature protocols 4.8 (2009): 1184.
+\[5\]Valdeolivas, Alberto, et al. "Random walk with restart on multiplex and heterogeneous biological networks." Bioinformatics 35.3 (2018): 497-505.
+
+

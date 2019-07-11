@@ -163,6 +163,7 @@ expanding_bipartite <- function(N, L, M, Bipartite_matrix){
   
   rownames(Super_Matrix) <- Row_NodeNames
   colnames(Super_Matrix) <- colnames(Bipartite_matrix)
+  return(Super_Matrix)
 }
 
 

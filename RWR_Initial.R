@@ -21,7 +21,7 @@ read_input_files <- function(input_files = c()){
   eta <- as.numeric(Parameters_File[6,2])
   
   parameters <- list(Test_Seeds, r, delta, tau, k, lambda, eta)
-  names(parameters) <- c("r", "delta", "tau", "k", "lambda", "eta")
+  names(parameters) <- c("testseed", "r", "delta", "tau", "k", "lambda", "eta")
   return(parameters)
 }
 

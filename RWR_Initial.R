@@ -83,27 +83,21 @@ generating_multiplex <- function(layers, delta, N){
     #order function arranges all the rownames and colnames in increasingly manner
     
     Adjacency_layer <- Adjacency_layer[order(rownames(Adjacency_layer)),order(colnames(Adjacency_layer))]
-    
     Layer_Col_Names <- paste(colnames(Adjacency_layer),i,sep="_")
-    
-    
     Layer_Row_Names <- paste(rownames(Adjacency_layer),i,sep="_")
     
     Col_NodeNames <- c(Col_NodeNames,Layer_Col_Names)
     Row_NodeNames <- c(Row_Node_Names,Layer_Row_Names)
     
     ## We fill the diagonal blocks with the adjacencies matrix of each layer.
-    
     ini_position_row <- 1 + (i-1)*N    # becoz we have three layer and we need to set for each layers diagonal and hence this
     end_position_row <- N + (i-1)*N
     multi_adj_mat[(ini_position_row:end_position_row),(ini_position_row:end_position_row)] <- (1-delta)*(Adjacency_layer)
     
-    for (j in 1:L)
-    {
+    for (j in 1:L){
       ini_position_col <- 1 + (j-1)*N
       end_position_col <- N + (j-1)*N
-      if (j != i)
-      {
+      if (j != i){
         multi_adj_mat[(ini_position_row:end_position_row),(ini_position_col:ini_position_col)] <- (delta/(L-1))*eye_matrix
       }
     }
@@ -141,7 +135,7 @@ bipartite_network <- function(all_nodes_sort, disease_names, Gene_Phenotype_rela
         }
       }  
     } else {
-      error_message <- paste("HGNC_Symbol", current_gene, "No HGNC found",sep=";", collapse = NULL)
+      error_message <- paste("HGNC_Symbol", current_node, "No HGNC found",sep=";", collapse = NULL)
       report <- c(report,error_message)
     }
   }

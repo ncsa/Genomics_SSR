@@ -1,8 +1,6 @@
 ############################################################################################
-
-## Code is been replicated from Alberto Valdeolivas team
+## The code is been replicated from Alberto Valdeolivas team
 ## Link : https://github.com/alberto-valdeolivas/RWR-MH
-
 ###########################################################################################
 
 ## 1. Installing Packages
